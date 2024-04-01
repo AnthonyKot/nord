@@ -1,3 +1,3 @@
-pub mod system;
-pub mod account;
-pub mod risk;
+pub mod config;
+
+pub use self::config::MarginingConfig;

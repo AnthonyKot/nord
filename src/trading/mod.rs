@@ -1,3 +1,3 @@
-pub mod engine;
-pub mod order;
-pub mod matching;
+pub mod config;
+
+pub use self::config::TradingConfig;

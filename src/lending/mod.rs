@@ -1,3 +1,3 @@
-pub mod engine;
-pub mod loan;
-pub mod interest;
+pub mod config;
+
+pub use self::config::LendingConfig;

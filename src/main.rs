@@ -1,38 +1,30 @@
-use nord::db::storage::Storage;
-use nord::lending::engine::LendingEngine;
-use nord::margining::system::MarginingSystem;
-use nord::trading::engine::TradingEngine;
+mod config;
+mod db;
+mod lending;
+mod margining;
+mod riskmanagement;
+mod trading;
+
+async fn process_operations() {
+    // let trading_task = tokio::spawn(async {
+    //     trading_engine.process_orders().await;
+    // });
+    // let lending_task = tokio::spawn(async {
+    //     lending_engine.process_loans().await;
+    // });
+    // let margining_task = tokio::spawn(async {
+    //     margining_system.update_and_manage_risk().await;
+    // });
+
+    // tokio::try_join!(trading_task, lending_task, margining_task).unwrap();
+}
 
 #[tokio::main]
 async fn main() {
-    // Initialize the storage
-    let storage = Storage::new().await;
-
-    // Initialize the trading engine
-    let mut trading_engine = TradingEngine::new(&storage).await;
-
-    // Initialize the lending engine
-    let mut lending_engine = LendingEngine::new(&storage).await;
-
-    // Initialize the margining system
-    let mut margining_system = MarginingSystem::new(&storage).await;
-
-    // Run the trading and lending system
-    loop {
-        // Handle trading operations
-        trading_engine.process_orders().await;
-
-        // Handle lending operations
-        lending_engine.process_loans().await;
-
-        // Update margin requirements and perform risk management
-        margining_system.update_margin_requirements().await;
-        margining_system.perform_risk_management().await;
-
-        // Other system operations and event handling
-        // ...
-
-        // Wait for a certain interval before the next iteration
-        tokio::time::sleep(std::time::Duration::from_secs(1)).await;
-    }
+    // logger::init();
+    let cfg = config::load_config().expect("Failed to load config");
+    println!("System operation mode: {}", cfg.system_operation_mode);
+    println!("Trading market hours: {}", cfg.trading.market_hours);
+    println!("Lending interest rate: {}", cfg.lending.interest_calculation);
+    process_operations().await;
 }
