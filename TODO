@@ -1,0 +1,23 @@
+1. Develop the functionality to manage tokens, including deposit, withdrawal, and interest calculation based on the specified formulas and parameters.
+
+2. Spot Market: Implement spot trading functionality for trading non-USDC assets against USDC.
+
+3. Perpetual Futures Market: Implement perpetual futures trading, including mark price calculation, funding rate computation, and position management.
+
+4. Develop the order book data structure and the matching engine to match and execute orders based on the specified market types and fee structures.
+
+5. Calculate Account Value (AV), Position Notional (PN), and Position Open Notional (PON) based on the provided formulas.
+
+6. Implement margin fraction calculations, such as Initial Margin Fraction (IMF), Open Margin Fraction (OMF), Cancel Margin Fraction (CMF), and Maintenance Margin Fraction (MMF).
+
+7. Develop the liquidation logic for canceling orders, closing positions, and handling borrowing based on the specified conditions and formulas.
+
+8. Implement the logic to handle account bankruptcy, including transferring negative debt, compensating the liquidator, and socializing losses if the insurance fund is depleted.
+
+9. Integrate with external data sources (e.g., price feeds, market data) to obtain real-time market information and index prices.
+
+10. Develop a user interface (UI) or API for users to interact with the trading platform, allowing them to place orders, manage positions, and monitor their account status.
+
+11. Write comprehensive unit tests and integration tests to ensure the correctness of the implemented functionality and edge cases.
+
+12. Document the codebase, prepare deployment scripts, and set up the necessary infrastructure for running the application in a production environment.
